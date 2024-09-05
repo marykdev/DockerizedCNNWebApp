@@ -1,4 +1,5 @@
-flask
+Flask
 torch
+torchserve
 torchvision
 Pillow

@@ -1,0 +1,24 @@
+version: '3'
+services:
+  webapp:
+    build: .
+    container_name: flask_webapp
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - torchserve
+    environment:
+      - FLASK_ENV=development
+
+  torchserve:
+    image: pytorch/torchserve:latest
+    container_name: torch_serve
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    volumes:
+      - ./model-store:/home/model-server/model-store
+      - ./config.properties:/home/model-server/config.properties
+    command: ["torchserve", "--start", "--model-store", "/home/model-server/model-store", "--ts-config", "/home/model-server/config.properties"]
