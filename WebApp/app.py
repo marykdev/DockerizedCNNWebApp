@@ -26,12 +26,12 @@ def get_transform(model_name):
 # Load the appropriate model
 def load_model(model_name):
     model_paths = {
-        'chestxray': 'Code/ChestXray/chestxray_best_model.pth',
-        'mnist': 'Code/mnist/mnist_best_model.pth'
+        'chestxray': 'model-store/chestxray_best_model.pth',
+        'mnist': 'model-store/mnist_cnn_best.pth'
     }
     model_classes = {
-        'chestxray': 'Code/ChestXray/chestxray_model.py',
-        'mnist': 'Code/mnist/mnist_model.py'
+        'chestxray': 'model-store/chestxray_model.py',
+        'mnist': 'model-store/mnist_model.py'
     }
     
     if model_name not in model_paths:
@@ -48,7 +48,8 @@ def load_model(model_name):
     elif model_name == 'mnist':
         model = model_module.CNNModel()
     
-    model.load_state_dict(torch.load(model_paths[model_name]))
+    model.load_state_dict(torch.load(model_paths[model_name], map_location=torch.device('cpu')))
+
     model.eval()
     return model
 
@@ -71,10 +72,12 @@ def predict():
     width, height = image.size
     if width == 28 and height == 28:
         model_name = 'mnist'
-    elif width == 128 and height == 128:
-        model_name = 'chestxray'
     else:
-        return jsonify({'error': 'Unable to determine model based on image dimensions'})
+        model_name = 'chestxray'    
+    # elif width == 128 and height == 128:
+        # model_name = 'chestxray'
+    # else:
+        # return jsonify({'error': 'Unable to determine model based on image dimensions'})
     
     transform = get_transform(model_name)
     image = transform(image).unsqueeze(0)

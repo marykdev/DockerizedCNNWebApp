@@ -1,16 +1,16 @@
 version: '3'
 services:
   webapp:
-    build: .
+    build: 
+      context: /WebApp
+      dockerfile: DockerFile
     container_name: flask_webapp
     ports:
-      - "5000:5000"
+      - "9696:9696"
     volumes:
-      - .:/app
+      - ./:/app
     depends_on:
       - torchserve
-    environment:
-      - FLASK_ENV=development
 
   torchserve:
     image: pytorch/torchserve:latest
