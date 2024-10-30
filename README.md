@@ -26,3 +26,28 @@ while the other model analyzes Chest X-ray images to determine if they indicate 
 ```bash
 git clone https://github.com/marykdev/DockerizedCNNWebApp.git
 cd DockerizedCNNWebApp
+
+
+Using the Application
+For MNIST, navigate to the MNIST section of the web app and upload an image of a handwritten digit.
+For Chest X-ray, navigate to the Chest X-ray section and upload an X-ray image for analysis.
+Models
+MNIST Model
+Trained on the MNIST dataset (handwritten digits).
+Achieves high accuracy in digit recognition.
+Chest X-ray Model
+Trained on Chest X-ray images to distinguish between healthy and unhealthy conditions.
+Utilizes a convolutional neural network architecture optimized for medical image analysis.
+Future Work
+Improve model accuracy with additional training data.
+Implement user authentication for a more personalized experience.
+Extend functionality to include more datasets and analyses.
+Contributing
+Contributions are welcome! If you have suggestions for improvements or features, feel free to open an issue or submit a pull request.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgments
+Inspired by the advancements in deep learning and computer vision.
+Thanks to the contributors and the open-source community for their valuable resources.
