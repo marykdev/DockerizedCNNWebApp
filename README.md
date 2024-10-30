@@ -45,8 +45,8 @@ Utilizes a convolutional neural network architecture optimized for medical image
 - Implement user authentication for a more personalized experience.
 - Extend functionality to include more datasets and analyses.
 
-# Contributing
+## Contributing
 Contributions are welcome! If you have suggestions for improvements or features, feel free to open an issue or submit a pull request.
 
-# Acknowledgments
+## Acknowledgments
 Thanks to the contributors and the open-source community for their valuable resources.
