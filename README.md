@@ -27,8 +27,7 @@ while the other model analyzes Chest X-ray images to determine if they indicate 
 git clone https://github.com/marykdev/DockerizedCNNWebApp.git
 cd DockerizedCNNWebApp
 
-
-Using the Application
+### Using the Application
 For MNIST, navigate to the MNIST section of the web app and upload an image of a handwritten digit.
 For Chest X-ray, navigate to the Chest X-ray section and upload an X-ray image for analysis.
 Models
